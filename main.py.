@@ -1,0 +1,11 @@
+def draw_board():
+    for i in range(8):
+        line = ""
+        for j in range(8):
+            if (i + j) % 2 == 0:
+                line += "⬜"
+            else:
+                line += "⬛"
+        print(line)
+
+draw_board()
