@@ -9,3 +9,18 @@ def draw_board():
         print(line)
 
 draw_board()
+
+def is_valid_move(piece, start_pos, end_pos):
+    # start_pos та end_pos - це координати (x, y)
+    dx = abs(end_pos[0] - start_pos[0])
+    dy = abs(end_pos[1] - start_pos[1])
+    
+    if piece == "Кінь":
+        # Математичний патерн коня: (1,2) або (2,1)
+        return (dx == 1 and dy == 2) or (dx == 2 and dy == 1)
+    
+    if piece == "Тура":
+        # Один з показників зміщення має бути нульовим
+        return dx == 0 or dy == 0
+
+    return False
