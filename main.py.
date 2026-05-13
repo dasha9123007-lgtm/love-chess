@@ -24,3 +24,20 @@ def is_valid_move(piece, start_pos, end_pos):
         return dx == 0 or dy == 0
 
     return False
+
+    if piece == "Слон":
+        # Діагональний рух: зміщення по X дорівнює зміщенню по Y
+        return dx == dy and dx > 0
+
+    if piece == "Ферзь":
+        # Комбінація Тури та Слона
+        return (dx == dy or dx == 0 or dy == 0) and (dx > 0 or dy > 0)
+
+    if piece == "Король":
+        # Може ходити на 1 клітинку в будь-якому напрямку
+        return dx <= 1 and dy <= 1 and (dx > 0 or dy > 0)
+
+    if piece == "Пішак":
+        # Спрощена логіка: тільки вперед (dy=1 або 2) без взяття фігур
+        # Тут dx має бути 0 (йде прямо)
+        return dx == 0 and (dy == 1 or dy == 2)
